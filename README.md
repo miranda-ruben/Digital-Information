@@ -2,7 +2,10 @@
 https://github.com/miranda-ruben/Digital-Information (Public)
 **Chosen approach:** Gemini API, `gemini-3.8-flash`
 
-## 1. Experiment
+## 1. Two approaches compared
+
+
+## 2. Experiment
 
 `experiment.py` sends ten realistic Erasmus-administration questions to the
 gemini model. It records per-case success and latency, then calculates success
@@ -21,7 +24,20 @@ already exhausted.
 
 **Result (17 October 2026):** 9/10 cases succeeded (90% success rate) and 14.939s. 9 calls were sucessful while one call returned ServerError: 503 UNAVAILABLE due to high demand. 
 
-## 2. First cost estimate
+
+## 3. Chosen approach, three limitations, and what would make you switch
+We chose the Gemini Flash API for this project, because we don't have to train the model and it is free. We asked the API already 10 questions in the Experiment above specifically about Erasmus. 
+
+The main limitations are:
+
+**Service availability:** If Google's API is unavailable or the request quota is exhausted, students may not receive an answer.
+
+**Answer accuracy:** The model may generate incorrect information or misunderstand university rules, so answers should be checked against official university sources.
+
+**Provider dependency:** The project depends on Google's API, its pricing, its model availability and its usage limits.
+
+What would make us switch, is an API that doesn't have such a low response quota but at the same time be free, that seems like the biggest issues for us as of right now. 
+## 5. First cost estimate
 
 Google Gemini API pricing:
 <https://ai.google.dev/gemini-api/docs/pricing>, checked 17 October 2026.

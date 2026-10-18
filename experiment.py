@@ -1,5 +1,6 @@
 import os
 import json
+import time
 
 from dotenv import load_dotenv
 from google import genai
@@ -31,6 +32,7 @@ results = []
 
 for i, question in enumerate(questions, start=1):
     print(f"Running question {i}/{len(questions)}...")
+    started_at = time.perf_counter()
 
     try:
         response = client.models.generate_content(
@@ -43,12 +45,16 @@ for i, question in enumerate(questions, start=1):
     except Exception as error:
         answer = f"ERROR: {error}"
 
+    latency_ms = round((time.perf_counter() - started_at) * 1000, 2)
+
     results.append({
         "question": question,
         "answer": answer,
+        "latency_ms": latency_ms,
     })
 
     print(answer)
+    print(f"Latency: {latency_ms} ms")
     print("-" * 40)
 
 with open("experiment_results.json", "w", encoding="utf-8") as file:
