@@ -64,9 +64,8 @@ At 100 actions per day for 30 days, the model-only estimate is
 
 ## A. Tasks leading to M3 — MVP
 
-Proposed schedule: 20 October–16 November 2026. Owners are tentative.
-
 | # | Task | Responsible member | Target date |
+
 | 1 | Finalize MVP scope, user journey, and acceptance criteria | Rayan Essifi | 21 Oct |
 
 | 2 | Select and organize official university sources for the initial use cases | Nelson Costa Alves | 25 Oct |
