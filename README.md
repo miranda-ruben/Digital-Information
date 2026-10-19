@@ -68,15 +68,26 @@ Proposed schedule: 20 October–16 November 2026. Owners are tentative.
 
 | # | Task | Responsible member | Target date |
 | 1 | Finalize MVP scope, user journey, and acceptance criteria | Rayan Essifi | 21 Oct |
+
 | 2 | Select and organize official university sources for the initial use cases | Nelson Costa Alves | 25 Oct |
+
 | 3 | Build the basic application interface and project setup | Ruben Miranda Lopes | 27 Oct |
+
 | 4 | Implement the Gemini prompt and response format for administrative questions | Ruben Miranda Lopes | 30 Oct |
+
 | 5 | Implement the mechanism for providing relevant official information to the AI | Nelson Costa Alves | 2 Nov |
+
 | 6 | Connect the user interface to the AI feature and complete the main user flow | Rayan Essifi | 5 Nov |
+
 | 7 | Test the end-to-end flow using realistic student questions; record bugs | All three | 8 Nov |
+
 | 8 | Fix priority bugs, handle missing or uncertain information, and improve responses | Ruben (AI), Nelson (sources), Rayan (interface/integration) | 11 Nov |
+
 | 9 | Finalize setup instructions, `.env.example`, architecture diagram, and README | Ruben Miranda Lopes | 12 Nov |
+
 | 10 | Verify that the application starts on another team member's laptop | Nelson Costa Alves | 13 Nov |
+
 | 11 | Record the three-minute demo, list known limitations, and prepare M3 summary | All three; Rayan coordinates | 15 Nov |
+
 | 12 | Submit the working MVP, repository link, video, and one-page summary | Team lead | 16 Nov |
 
