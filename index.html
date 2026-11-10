@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UniAiGuide</title>
+  </head>
+  <body>
+    <main>
+      <h1>UniAiGuide</h1>
+
+      <form id="QuestionInput">
+       <input type="text" id="question" name="question" placeholder="Type your question here" style="width: 300px; padding: 10px;"/>
+        <button type="submit" style="padding: 10px 15px; margin-left: 10px;">
+          Send
+        </button>
+      </form>
+      <h3>Answer:</h3>
+        <p id="answer"></p>
+    </main>
+
+    <footer>
+      <p>© 2026 UniAiGuide</p>
+    </footer>
+
+    <script>
+        document.getElementById('QuestionInput').addEventListener('submit', function(event)
+        {
+            const question = document.getElementById('question').value;
+            const answer = document.getElementById('answer');
+        });
+
+    </script>
+  </body>
+</html>
