@@ -26,8 +26,12 @@
     <script>
         document.getElementById('QuestionInput').addEventListener('submit', function(event)
         {
+            event.preventDefault();
             const question = document.getElementById('question').value;
             const answer = document.getElementById('answer');
+
+            // Hard coded response to see if button works
+            answer.textContent = 'Your answer is...';
         });
 
     </script>
