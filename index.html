@@ -24,15 +24,33 @@
     </footer>
 
     <script>
-        document.getElementById('QuestionInput').addEventListener('submit', function(event)
-        {
-            event.preventDefault();
-            const question = document.getElementById('question').value;
-            const answer = document.getElementById('answer');
+  document.getElementById('QuestionInput').addEventListener('submit', async function(event) {
+    event.preventDefault();
 
-            // Hard coded response to see if button works
-            answer.textContent = 'Your answer is...';
-        });
+    const question = document.getElementById('question').value;
+    const answer = document.getElementById('answer');
+
+    answer.textContent = 'Thinking...';
+
+    try {
+      const response = await fetch('/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: question })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'The request failed.');
+      }
+
+      answer.textContent = data.answer || 'The AI returned no answer.';
+    } catch (error) {
+      answer.textContent = 'Could not get an answer: ' + error.message;
+    }
+  });
+</script>
 
     </script>
   </body>
