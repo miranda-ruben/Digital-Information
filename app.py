@@ -5,7 +5,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request, send_from_directory
 from google import genai
-from google.genai.errors import ServerError
+from google.genai.errors import ServerError, ClientError
 
 # Website runs on http://127.0.0.1:5000
 app = Flask(__name__)
@@ -124,11 +124,24 @@ def ask():
             """,
         )
 
+    
+    except ClientError as e:
+        if e.code == 429:
+            return jsonify({
+                "error": "Gemini's request limit has been reached. Please try again later."
+            }), 429
+
+        app.logger.exception("Gemini API request failed.")
+        return jsonify({
+            "error": "There was a problem processing your request."
+        }), 502
+
     except ServerError:
         app.logger.exception("Gemini is temporarily unavailable.")
         return jsonify({
             "error": "Gemini is temporarily unavailable. Please try again later."
         }), 503
+
 
     if not check_source(response.text or ""):
         return jsonify({
@@ -140,7 +153,6 @@ def ask():
         "answer": response.text,
         "sources": get_source_dates(response.text or "")
     })
-
 
 if __name__ == "__main__":
     app.run(debug=True)
