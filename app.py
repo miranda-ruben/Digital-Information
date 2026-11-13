@@ -1,30 +1,74 @@
-
 import os
 import re
 from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request, send_from_directory
 from google import genai
-from google.genai.errors import ServerError
+from google.genai.errors import ServerError, ClientError
 
 # Website runs on http://127.0.0.1:5000
 app = Flask(__name__)
 
 SOURCE_DIR = Path(__file__).parent / "university_sources"
-SOURCE_FILES = [
-    SOURCE_DIR / "erasmus-application.txt",
-    SOURCE_DIR / "study-abroad.txt",
-]
 
-APPROVED_SOURCES = [
-    "https://www.uni.lu/en/mobility/outgoing-student-mobility/erasmus/",
-    "https://www.uni.lu/fdef-en/study-abroad/",
-]
-
-SOURCE_CHECK_DATES = {
-    "https://www.uni.lu/en/mobility/outgoing-student-mobility/erasmus/": "12.11.2026",
-    "https://www.uni.lu/fdef-en/study-abroad/": "12.11.2026",
+# The two older .txt files have no header, so their details are listed here.
+LEGACY_SOURCES = {
+    "erasmus-application.txt": {
+        "url": "https://www.uni.lu/en/mobility/outgoing-student-mobility/erasmus/",
+        "last_checked": "2026-11-12",
+    },
+    "study-abroad.txt": {
+        "url": "https://www.uni.lu/fdef-en/study-abroad/",
+        "last_checked": "2026-11-12",
+    },
 }
+
+
+def read_header(text):
+    """Read the 'key: value' lines between the two --- lines at the top of a .md file."""
+    meta = {}
+    if text.startswith("---"):
+        end = text.find("\n---", 3)
+        if end != -1:
+            for line in text[3:end].splitlines():
+                if ":" in line:
+                    key, value = line.split(":", 1)
+                    meta[key.strip()] = value.strip()
+    return meta
+
+
+def to_dmy(iso_date):
+    """2026-11-12 -> 12.11.2026 (unchanged if it is not in that format)."""
+    parts = iso_date.split("-")
+    return f"{parts[2]}.{parts[1]}.{parts[0]}" if len(parts) == 3 else iso_date
+
+
+def load_sources():
+    documents = []
+    check_dates = {}
+
+    for path in sorted(SOURCE_DIR.glob("*.md")) + sorted(SOURCE_DIR.glob("*.txt")):
+        text = path.read_text(encoding="utf-8")
+        if path.suffix == ".md":
+            meta = read_header(text)
+        else:
+            meta = LEGACY_SOURCES.get(path.name, {})
+
+        url = meta.get("url")
+        checked = meta.get("last_checked")
+        if not url or not checked:
+            continue  # not an official source (for example GAPS.md)
+
+        check_dates[url] = to_dmy(checked)
+        documents.append(
+            f"=== SOURCE ===\nURL: {url}\nLast checked: {to_dmy(checked)}\n\n{text}"
+        )
+
+    return "\n\n".join(documents), check_dates
+
+
+SOURCE_TEXT, SOURCE_CHECK_DATES = load_sources()
+APPROVED_SOURCES = list(SOURCE_CHECK_DATES)
 
 VALID_REFUSAL = (
     "I couldn't find this in the official information available to me. "
@@ -34,9 +78,6 @@ VALID_REFUSAL = (
 
 URL_PATTERN = re.compile(r"https?://[^\s<>\"']+")
 
-SOURCE_TEXT = "\n".join(
-    file.read_text(encoding="utf-8") for file in SOURCE_FILES
-)
 
 
 @app.get("/")
@@ -124,11 +165,24 @@ def ask():
             """,
         )
 
+    
+    except ClientError as e:
+        if e.code == 429:
+            return jsonify({
+                "error": "Gemini's request limit has been reached. Please try again later."
+            }), 429
+
+        app.logger.exception("Gemini API request failed.")
+        return jsonify({
+            "error": "There was a problem processing your request."
+        }), 502
+
     except ServerError:
         app.logger.exception("Gemini is temporarily unavailable.")
         return jsonify({
             "error": "Gemini is temporarily unavailable. Please try again later."
         }), 503
+
 
     if not check_source(response.text or ""):
         return jsonify({
@@ -140,7 +194,6 @@ def ask():
         "answer": response.text,
         "sources": get_source_dates(response.text or "")
     })
-
 
 if __name__ == "__main__":
     app.run(debug=True)
