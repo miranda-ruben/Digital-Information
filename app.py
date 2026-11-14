@@ -1,3 +1,4 @@
+import math
 import os
 import re
 from pathlib import Path
@@ -44,7 +45,7 @@ def to_dmy(iso_date):
 
 
 def load_sources():
-    documents = []
+    docs = []
     check_dates = {}
 
     for path in sorted(SOURCE_DIR.glob("*.md")) + sorted(SOURCE_DIR.glob("*.txt")):
@@ -57,18 +58,87 @@ def load_sources():
         url = meta.get("url")
         checked = meta.get("last_checked")
         if not url or not checked:
-            continue  # not an official source (for example GAPS.md)
+            print(f"WARNING: {path.name} has no url/last_checked header and is NOT loaded.")
+            continue
 
         check_dates[url] = to_dmy(checked)
-        documents.append(
-            f"=== SOURCE ===\nURL: {url}\nLast checked: {to_dmy(checked)}\n\n{text}"
-        )
+        docs.append({
+            "url": url,
+            "checked": to_dmy(checked),
+            "title": meta.get("title", path.stem),
+            "text": text,
+        })
 
-    return "\n\n".join(documents), check_dates
+    return docs, check_dates
 
 
-SOURCE_TEXT, SOURCE_CHECK_DATES = load_sources()
+SOURCES, SOURCE_CHECK_DATES = load_sources()
 APPROVED_SOURCES = list(SOURCE_CHECK_DATES)
+
+# ---- Choose the sources that fit the question (keeps the prompt small) ----
+STOPWORDS = set(
+    "a an the of to in on at for and or is are was were be been do does did can could "
+    "should would will i my me we you your it its this that these those what which who "
+    "whom when where why how with from by as if about into out up down over under than "
+    "then so no not any some all get give tell please need want have has had there here "
+    "much many more most also just".split()
+)
+
+
+# Different words that mean the same thing on the university pages.
+ALIASES = {
+    "apply": "application", "applying": "application", "applied": "application",
+    "nomination": "allocation", "nominated": "allocation", "nominate": "allocation",
+    "selection": "allocation", "selected": "allocation",
+    "dispensation": "exemption", "dispense": "exemption",
+    "abroad": "exchange", "mobility": "exchange",
+}
+
+
+def stem(word):
+    word = ALIASES.get(word, word)
+    for end in ("ing", "ed", "es", "s"):
+        if word.endswith(end) and len(word) - len(end) >= 4:
+            word = word[: -len(end)]
+            break
+    return word[:6]  # exempted / exemption -> exempt, application / applications -> applic
+
+
+def words(text):
+    found = re.findall(r"[a-z0-9+]+", text.lower())
+    return [stem(w) for w in found if w not in STOPWORDS and len(w) > 1]
+
+
+for doc in SOURCES:
+    doc["counts"] = {}
+    for w in words(doc["text"]):
+        doc["counts"][w] = doc["counts"].get(w, 0) + 1
+    doc["title_words"] = set(words(doc["title"] + " " + doc["url"]))
+
+DOC_FREQ = {}
+for doc in SOURCES:
+    for w in doc["counts"]:
+        DOC_FREQ[w] = DOC_FREQ.get(w, 0) + 1
+
+
+def select_sources(question, limit=6):
+    """Return the `limit` documents that best match the question (best first)."""
+    terms = set(words(question))
+    scored = []
+    for doc in SOURCES:
+        score = 0.0
+        for w in terms:
+            tf = doc["counts"].get(w, 0)
+            if tf:
+                idf = math.log((len(SOURCES) + 1) / (1 + DOC_FREQ[w])) + 1
+                score += (1 + math.log(tf)) * idf
+            if w in doc["title_words"]:
+                score += 3
+        if score > 0:
+            scored.append((score, doc))
+    scored.sort(key=lambda pair: pair[0], reverse=True)
+    return [doc for _, doc in scored[:limit]]
+
 
 VALID_REFUSAL = (
     "I couldn't find this in the official information available to me. "
@@ -140,20 +210,34 @@ def ask():
             "error": "Please enter a University of Luxembourg related question."
         }), 400
 
+    selected = select_sources(question)
+    if not selected:
+        # Nothing in the official sources even mentions the question's words.
+        return jsonify({"answer": VALID_REFUSAL})
+
+    source_text = "\n\n".join(
+        f"=== SOURCE ===\nURL: {d['url']}\nLast checked: {d['checked']}\n\n{d['text']}"
+        for d in selected
+    )
+    selected_dates = {d["url"]: d["checked"] for d in selected}
+
     try:
         response = client.models.generate_content(
             model=model,
             contents=f"""
             Answer the user's question using only the official source text below.
             Do not add any facts from your general knowledge.
-            If the source does not answer the question, reply:
+            If the source contains part of the answer, give that part and say
+            clearly what the source does not cover. Do not invent the rest.
+            Only if the source contains nothing useful for the question, reply:
             "{VALID_REFUSAL}"
+            Sources marked as no longer offered or outdated must be reported as such.
             Answer in plain text.
             Do not use Markdown formatting such as ** or *.
             Cite every answer with one or more exact approved official source URLs.
 
             Official source:
-            {SOURCE_TEXT}
+            {source_text}
 
             User question:
             {question}
@@ -161,7 +245,7 @@ def ask():
             Everytime you cite a source, include the last checked date of that source in the format "Last checked: DD.MM.YYYY".
             If no date is available, use "Last checked: unknown".
             Last checked dates of the official sources:
-            {SOURCE_CHECK_DATES}
+            {selected_dates}
             """,
         )
 

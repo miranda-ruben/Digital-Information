@@ -1,3 +1,13 @@
+---
+id: erasmus-landing-page
+title: Erasmus+ - Outgoing student mobility (landing page, 10 steps)
+url: https://www.uni.lu/en/mobility/outgoing-student-mobility/erasmus/
+office: International Relations Office (BRI)
+type: webpage
+faculty_scope: all
+last_checked: 2026-11-12
+---
+
 Title: Erasmus+ — Outgoing student mobility
 Institution: University of Luxembourg
 Source URL: https://www.uni.lu/en/mobility/outgoing-student-mobility/erasmus/
