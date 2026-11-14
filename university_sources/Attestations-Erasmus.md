@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: Older 2024-25 forms. A newer combined form (certificate-of-attendance) exists. Check which one is current.
-
 
 # Attestations Erasmus Studies 2024-25
 

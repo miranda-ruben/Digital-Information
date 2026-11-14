@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-14
 ---
 
-> Note: CONDENSED content from an automated page reader, not copied word for word. Compare it with the live page and paste in anything missing. The page's own links were not captured. Dated 2025/02, written for free movers and the Swiss-European Mobility Programme (SEMP). The free mover option is discontinued from 2026/27 (see free-mover.md). Replace this with the full PDF text if you can.
-
 # Checklist - outgoing mobility (Free mover / SEMP)
 
 ## Before leaving

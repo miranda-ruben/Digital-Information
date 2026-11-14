@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: Short promotional leaflet. The PDF has links (Application Guide, View departure semester) that are not in the text.
-
 
 # YOUR EXCHANGE SEMESTER - The world is waiting for you!
 All you need to know about your exchange semester.

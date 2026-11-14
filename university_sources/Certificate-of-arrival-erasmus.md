@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: This is a blank form (FR/EN). Only the English wording and instructions are kept.
-
 
 # Certificate of arrival
 

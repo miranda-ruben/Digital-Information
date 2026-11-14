@@ -8,7 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: CONDENSED content. This was produced by an automated page reader, not copied word for word. Compare it with the live page and paste in any missing detail.
 
 # Outgoing student mobility
 

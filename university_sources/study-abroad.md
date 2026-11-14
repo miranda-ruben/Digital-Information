@@ -1,3 +1,13 @@
+---
+id: fdef-study-abroad
+title: Study abroad - Faculty of Law, Economics and Finance (FDEF)
+url: https://www.uni.lu/fdef-en/study-abroad/
+office: BRI and FDEF mobility contact
+type: webpage
+faculty_scope: FDEF
+last_checked: 2026-11-12
+---
+
 Title: Study abroad — Faculty of Law, Economics and Finance (FDEF)
 Institution: University of Luxembourg
 Official source URL: https://www.uni.lu/fdef-en/study-abroad/

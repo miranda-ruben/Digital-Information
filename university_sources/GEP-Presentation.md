@@ -8,8 +8,6 @@ faculty_scope: all (some programmes only in 2nd call)
 last_checked: 2026-11-12
 ---
 
-> Note: OUTDATED: this presentation is for academic year 2025/26. The dates have no year. Global Exchange is outside Europe and is a different programme from Erasmus+. Partner places per university are shown in the PDF slides and are not reproduced here. Check the current GEP page.
-
 
 # Global Exchange Programme in a nutshell
 Your exchange semester beyond the borders of Europe.

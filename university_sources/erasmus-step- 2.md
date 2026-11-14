@@ -8,8 +8,6 @@ faculty_scope: all (Bachelor and Master)
 last_checked: 2026-11-14
 ---
 
-> Note: CONDENSED content from an automated page reader, not copied word for word. Compare it with the live page and paste in anything missing. The page's own links were not captured. The 'next steps after you accepted your spot' heading on the live page had no content in the capture.
-
 # Outgoing student mobility Erasmus+ - Step 2: How to participate in the Erasmus+ Programme
 
 ## Bachelor students

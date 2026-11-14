@@ -8,8 +8,6 @@ faculty_scope: all (FDEF learning agreement rules included)
 last_checked: 2026-11-14
 ---
 
-> Note: CONDENSED content from an automated page reader, not copied word for word. Compare it with the live page and paste in anything missing. The page's own links were not captured. IMPORTANT: this page states that the free mover option is discontinued. Other collected files (study-abroad, outgoing-student-mobility) still describe it as available; this newer page takes priority for 2026/27.
-
 # Outgoing student mobility - Free mover
 
 ## Status

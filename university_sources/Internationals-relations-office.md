@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: CONDENSED content. This was produced by an automated page reader, not copied word for word. The page has a "How to contact us" heading, but no contact details were captured. Use the contact details in the other collected documents (bri.outgoing@uni.lu).
-
 # International Relations Office
 
 ## Overview

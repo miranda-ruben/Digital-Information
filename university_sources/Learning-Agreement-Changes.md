@@ -8,7 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: Source file is a Word form (.docx), used when the host university does not use the online learning agreement. The form fields are described here, not reproduced as a table.
 
 
 # Learning Agreement - Student Mobility for Studies - Changes to learning agreement

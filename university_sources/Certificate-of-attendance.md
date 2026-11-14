@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: Blank form. It may replace the older separate arrival/departure forms (24-25). Confirm which version the office wants.
-
 
 # Certificate of attendance
 

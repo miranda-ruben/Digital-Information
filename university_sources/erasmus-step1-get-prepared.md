@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-14
 ---
 
-> Note: CONDENSED content from an automated page reader, not copied word for word. Compare it with the live page and paste in anything missing. The page's own links were not captured.
-
 # Outgoing student mobility Erasmus+ - Step 1: Get prepared
 
 ## Timing

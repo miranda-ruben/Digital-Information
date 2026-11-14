@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: CONDENSED content. This was produced by an automated page reader, not copied word for word. Compare it with the live page and paste in any missing detail before relying on it. The page's own links (OLA tutorials, mobility portal, forms) were not captured.
-
 # Erasmus+ - Before your study exchange
 
 ## Step 3: Application at the receiving institution

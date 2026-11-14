@@ -8,8 +8,6 @@ faculty_scope: FSTM, FDEF, FHSE
 last_checked: 2026-11-12
 ---
 
-> Note: In the PDF the allowed semesters are shown with green ticks. They are written out here as text.
-
 
 # Possible departure semesters
 

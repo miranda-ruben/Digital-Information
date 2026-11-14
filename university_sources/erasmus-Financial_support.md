@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: The PDF is bilingual (FR/EN). Only the English part is kept here. Amounts are for academic year 2025-26.
-
 
 # Erasmus+ funding for 2025-26 - Student mobility
 

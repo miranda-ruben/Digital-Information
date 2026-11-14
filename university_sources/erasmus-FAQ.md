@@ -8,8 +8,6 @@ faculty_scope: all
 last_checked: 2026-11-12
 ---
 
-> Note: Edition 24-25. The PDF is FR/DE/EN; only the English part is kept. Check whether a newer edition exists.
-
 
 # Erasmus+ Mobility contract (Grant/mobility agreement) - FAQ
 
