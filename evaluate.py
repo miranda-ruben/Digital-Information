@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 import os
-
+from google.genai import errors
 from dotenv import load_dotenv
 from google import genai
 
@@ -14,6 +14,7 @@ if not api_key:
 client = genai.Client(api_key=api_key)
 
 model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+
 
 # Find the project folder
 PROJECT_DIR = Path(__file__).parent
@@ -36,8 +37,6 @@ for question in questions:
 
 
 def evaluate_answer(question, answer, expected_key_points):
-
-  def evaluate_answer(question, answer, expected_key_points):
     evaluation_prompt = f"""
     You are evaluating the quality of an AI-generated answer
     about Erasmus student mobility at the University of Luxembourg.
@@ -59,19 +58,34 @@ def evaluate_answer(question, answer, expected_key_points):
     Do not give credit for information that is not actually present.
     Do not assume that missing information is covered.
 
-        Return ONLY valid JSON in this exact format:
+    Return ONLY valid JSON in this exact format:
 
-    {
+    {{
         "results": [
-            {
+            {{
                 "key_point": "The expected key point",
                 "covered": true,
                 "explanation": "Why this point was considered covered or missing"
-            }
+            }}
         ]
-    }
+    }}
 
     Include exactly one result for every expected key point.
     Use true or false for covered.
     Do not include Markdown formatting or code fences.
     """
+
+    try:
+        response = client.models.generate_content(
+            model=model,
+            contents=evaluation_prompt
+        )
+
+        return response.text
+
+    except errors.APIError as error:
+        print(f"Gemini API error: {error}")
+        return None
+
+
+
