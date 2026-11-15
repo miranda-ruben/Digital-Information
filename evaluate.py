@@ -22,18 +22,28 @@ PROJECT_DIR = Path(__file__).parent
 # Find the expected answers file
 ANSWERS_FILE = PROJECT_DIR / "expected_answers.json"
 
+# Find the generated results file
+RESULTS_FILE = PROJECT_DIR / "experiment_results.json"
+
 # Load the expected answers
 with open(ANSWERS_FILE, "r", encoding="utf-8") as file:
     data = json.load(file)
 
 questions = data["questions"]
 
+# Load the generated results
+with open(RESULTS_FILE, "r", encoding="utf-8") as file:
+    generated_results = json.load(file)
+
+print(f"Successfully loaded {len(generated_results)} generated answers.")
 print(f"Successfully loaded {len(questions)} test questions.")
 
-for question in questions:
-    print(f"Question {question['id']}: {question['question']}")
-    print(f"Expected key points: {len(question['expected_key_points'])}")
-    print()
+# Match each question with its generated answer
+for question, result in zip(questions, generated_results):
+    print(f"Question: {question['question']}")
+    print(f"Generated answer: {result['answer']}")
+    print("-" * 40)
+
 
 
 def evaluate_answer(question, answer, expected_key_points):
