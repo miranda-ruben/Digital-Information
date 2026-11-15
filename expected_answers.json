@@ -1,0 +1,150 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "What should I check before leaving for an Erasmus exchange?",
+      "expected_key_points": [
+        "Wait for the Outgoing Mobility Office email before starting the host university application.",
+        "Respect the host university application deadlines.",
+        "Complete a Learning Agreement of at least 30 ECTS and obtain the required signatures.",
+        "Complete the OLS language evaluation if the teaching language is not the student's mother tongue.",
+        "Complete the required enrolment steps and upload the signed mobility contract through the mobility portal.",
+        "Arrange accommodation and check health insurance, passport validity and visa requirements."
+      ],
+      "evaluation_notes": [
+        "International SOS provides assistance but is not an insurance provider.",
+        "Accommodation is the student's responsibility."
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Which documents should I prepare for Erasmus registration?",
+      "expected_key_points": [
+        "Prepare a Learning Agreement (LA or OLA) covering at least 30 ECTS.",
+        "Obtain the required signatures from the student, programme director and host institution.",
+        "Upload the signed mobility contract through the mobility portal.",
+        "Complete the OLS language evaluation if the teaching language is not the student's mother tongue."
+      ],
+      "evaluation_notes": [
+        "The Declaration of Honour for Green Travel is relevant only when claiming the Green Travel top-up.",
+        "The available landing page does not provide a complete list of documents required for every individual situation.",
+        "Do not present arrival or departure certificates as initial registration documents."
+      ]
+    },
+    {
+      "id": 3,
+      "question": "How can I check whether my courses will transfer as credits?",
+      "expected_key_points": [
+        "Agree on the courses and their recognition through the Learning Agreement.",
+        "Use the Learning Agreement to record the courses and ECTS.",
+        "If courses change during mobility, update the Learning Agreement using Table A2.",
+        "Provide reasons for exceptional course changes.",
+        "Obtain the required signatures from the student, host institution and sending institution.",
+        "Credits agreed in the Learning Agreement and confirmed by the Transcript of Records are automatically recognised according to the form."
+      ],
+      "evaluation_notes": [
+        "The source does not explain the complete initial course-selection or equivalence procedure.",
+        "Do not invent a specific credit-transfer calculation."
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What should I do if my host university has not sent an acceptance letter?",
+      "expected_key_points": [
+        "Clearly acknowledge that the available sources do not specify what to do when an acceptance letter has not arrived.",
+        "Suggest contacting the relevant mobility office for clarification, while making clear this is a recommendation rather than a documented procedure.",
+        "Do not invent a deadline, alternative document or acceptance-letter procedure."
+      ],
+      "evaluation_notes": [
+        "Do not confuse an acceptance letter with the Certificate of Arrival, which is completed after arriving at the host university."
+      ]
+    },
+    {
+      "id": 5,
+      "question": "How should I plan health insurance for studying abroad in Europe?",
+      "expected_key_points": [
+        "Arrange adequate health insurance before travelling.",
+        "Know that International SOS provides free 24/7 assistance for mobility trips.",
+        "Understand that International SOS is not an insurance provider and does not replace health insurance."
+      ],
+      "evaluation_notes": [
+        "The sources do not specify an insurance provider, exact coverage requirements or insurance costs for each destination.",
+        "Do not claim that International SOS replaces health insurance or covers leisure trips."
+      ]
+    },
+    {
+      "id": 6,
+      "question": "What questions should I ask about accommodation before travelling?",
+      "expected_key_points": [
+        "Consider accommodation costs when comparing the cost of living at the destination.",
+        "Check the location of the host university campus because courses may take place away from the main study location.",
+        "Consider accommodation availability and location when preparing for the exchange.",
+        "Understand that accommodation is the student's responsibility and that applying early is recommended."
+      ],
+      "evaluation_notes": [
+        "The sources warn about housing scams and suggest considering the local ESN.",
+        "The sources do not provide a detailed rental application procedure or specific accommodation prices."
+      ]
+    },
+    {
+      "id": 7,
+      "question": "How can I make an exchange budget that includes hidden costs?",
+      "expected_key_points": [
+        "Estimate living expenses such as accommodation, food and leisure.",
+        "Consider differences in the cost of living between destinations.",
+        "Check the Erasmus monthly grant applicable to the destination.",
+        "Consider the travel contribution, which depends on the distance band.",
+        "Check whether eligible students can receive the fewer-opportunities top-up.",
+        "Account for the minimum and maximum funded mobility durations.",
+        "Plan for upfront expenses because 70% of the grant is paid at the beginning and the remaining amount is recalculated after mobility."
+      ],
+      "evaluation_notes": [
+        "The financial support document describes the 2025–2026 funding period. Its grant amounts must not be presented as confirmed current rates for 2026–2027.",
+        "The sources do not provide exact accommodation deposits, food budgets or other destination-specific hidden costs.",
+        "The grant should not be assumed to cover all living expenses."
+      ]
+    },
+    {
+      "id": 8,
+      "question": "What should I do if an official university webpage gives unclear instructions?",
+      "expected_key_points": [
+        "Identify the Bureau des Relations Internationales (BRI) as the office that coordinates and promotes Erasmus+ student mobility.",
+        "Recommend contacting the BRI for clarification about international mobility, while making clear this is a recommendation based on its responsibilities.",
+        "Do not invent a contact person, contact details or response deadline."
+      ],
+      "evaluation_notes": [
+        "The available source does not explicitly describe a procedure for reporting unclear webpage instructions."
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Which deadlines should I put in an Erasmus preparation checklist?",
+      "expected_key_points": [
+        "Regularly check the university student email account for mobility instructions.",
+        "Ensure the European Health Insurance Card is valid before departure.",
+        "After arrival, obtain the signed and stamped Certificate of Arrival and upload it to the mobility portal.",
+        "Update the Learning Agreement within the first month after arrival if courses or ECTS change.",
+        "At the end of the exchange, obtain and upload the Certificate of End of Stay and the required Learning Agreement documents.",
+        "Complete the online mobility report.",
+        "After returning, provide the required Transcript of Records to the academic contact."
+      ],
+      "evaluation_notes": [
+        "The sources specify some relative deadlines but do not provide every student's individual application deadline.",
+        "The second grant payment is described as occurring around four weeks after the Certificate of End of Stay, subject to the stated requirements."
+      ]
+    },
+    {
+      "id": 10,
+      "question": "When should I contact my home university coordinator during an exchange?",
+      "expected_key_points": [
+        "Recognise that the programme director is responsible for recognising ECTS earned abroad.",
+        "Understand that credit recognition is based on the Learning Agreement signed before the exchange.",
+        "Recommend contacting the programme director or relevant faculty mobility contact about academic recognition or agreed courses, while identifying this as a recommendation."
+      ],
+      "evaluation_notes": [
+        "The available source does not specify exact circumstances or deadlines for contacting the home university coordinator during the exchange.",
+        "Do not invent contact deadlines or procedures."
+      ]
+    }
+  ]
+}
