@@ -14,3 +14,8 @@ with open(ANSWERS_FILE, "r", encoding="utf-8") as file:
 questions = data["questions"]
 
 print(f"Successfully loaded {len(questions)} test questions.")
+
+for question in questions:
+    print(f"Question {question['id']}: {question['question']}")
+    print(f"Expected key points: {len(question['expected_key_points'])}")
+    print()
