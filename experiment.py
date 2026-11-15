@@ -1,54 +1,57 @@
-import os
+
 import json
+from os import error
 import time
+from app import client, model, select_sources, VALID_REFUSAL
+from prompt import build_prompt
 
-from dotenv import load_dotenv
-from google import genai
 
-load_dotenv()
-
-api_key = os.getenv("GEMINI_API_KEY")
-if not api_key:
-    raise ValueError("GEMINI_API_KEY was not found in the .env file.")
-
-client = genai.Client(api_key=api_key)
-
-model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
-
-questions = [
-    "What should I check before leaving for an Erasmus exchange?",
-    "Which documents should I prepare for Erasmus registration?",
-    "How can I check whether my courses will transfer as credits?",
-    "What should I do if my host university has not sent an acceptance letter?",
-    "How should I plan health insurance for studying abroad in Europe?",
-    "What questions should I ask about accommodation before travelling?",
-    "How can I make an exchange budget that includes hidden costs?",
-    "What should I do if an official university webpage gives unclear instructions?",
-    "Which deadlines should I put in an Erasmus preparation checklist?",
-    "When should I contact my home university coordinator during an exchange?",
-]
+with open("expected_answers.json", "r", encoding="utf-8") as file:
+    test_cases = json.load(file)["questions"]
 
 results = []
 
-for i, question in enumerate(questions, start=1):
-    print(f"Running question {i}/{len(questions)}...")
+for i, case in enumerate(test_cases, start=1):
+    question = case["question"]
+    expected_key_points = case["expected_key_points"]
+    print(f"Running question {i}/{len(test_cases)}...")
     started_at = time.perf_counter()
 
     try:
-        response = client.models.generate_content(
-            model=model,
-            contents=question,
-        )
+        selected = select_sources(question)
 
-        answer = response.text
+        if not selected:
+            answer = VALID_REFUSAL
+        else:
+            source_text = "\n\n".join(
+                f"=== SOURCE ===\nURL: {doc['url']}\nLast checked: {doc['checked']}\n\n{doc['text']}"
+                for doc in selected
+            )
+            
+            selected_dates = {
+                doc["url"]: doc["checked"]
+                for doc in selected
+}
+
+            response = client.models.generate_content(
+                model=model,
+                contents=build_prompt(
+                source_text,
+                question,
+                selected_dates,
+                VALID_REFUSAL
+    ),
+)
+            answer = response.text
 
     except Exception as error:
-        answer = f"ERROR: {error}"
+            answer = f"ERROR: {error}"
 
     latency_ms = round((time.perf_counter() - started_at) * 1000, 2)
 
     results.append({
         "question": question,
+        "expected_key_points": expected_key_points,
         "answer": answer,
         "latency_ms": latency_ms,
     })

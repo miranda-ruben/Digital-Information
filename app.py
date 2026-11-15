@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify, request, send_from_directory
 from google import genai
 from google.genai.errors import ServerError, ClientError
+from prompt import build_prompt
 
 # Website runs on http://127.0.0.1:5000
 app = Flask(__name__)
@@ -224,30 +225,13 @@ def ask():
     try:
         response = client.models.generate_content(
             model=model,
-            contents=f"""
-            Answer the user's question using only the official source text below.
-            Do not add any facts from your general knowledge.
-            If the source contains part of the answer, give that part and say
-            clearly what the source does not cover. Do not invent the rest.
-            Only if the source contains nothing useful for the question, reply:
-            "{VALID_REFUSAL}"
-            Sources marked as no longer offered or outdated must be reported as such.
-            Answer in plain text.
-            Do not use Markdown formatting such as ** or *.
-            Cite every answer with one or more exact approved official source URLs.
-
-            Official source:
-            {source_text}
-
-            User question:
-            {question}
-
-            Everytime you cite a source, include the last checked date of that source in the format "Last checked: DD.MM.YYYY".
-            If no date is available, use "Last checked: unknown".
-            Last checked dates of the official sources:
-            {selected_dates}
-            """,
-        )
+            contents=build_prompt(
+                source_text,
+                question,
+                selected_dates,
+                VALID_REFUSAL
+            )
+        )   
 
     
     except ClientError as e:
