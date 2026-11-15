@@ -59,5 +59,19 @@ def evaluate_answer(question, answer, expected_key_points):
     Do not give credit for information that is not actually present.
     Do not assume that missing information is covered.
 
-    Return your evaluation as JSON.
+        Return ONLY valid JSON in this exact format:
+
+    {
+        "results": [
+            {
+                "key_point": "The expected key point",
+                "covered": true,
+                "explanation": "Why this point was considered covered or missing"
+            }
+        ]
+    }
+
+    Include exactly one result for every expected key point.
+    Use true or false for covered.
+    Do not include Markdown formatting or code fences.
     """
