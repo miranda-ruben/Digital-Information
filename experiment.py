@@ -27,25 +27,27 @@ for i, case in enumerate(test_cases, start=1):
                 f"=== SOURCE ===\nURL: {doc['url']}\nLast checked: {doc['checked']}\n\n{doc['text']}"
                 for doc in selected
             )
-            
+
             selected_dates = {
                 doc["url"]: doc["checked"]
                 for doc in selected
-}
+            }
+
 
             response = client.models.generate_content(
                 model=model,
                 contents=build_prompt(
-                source_text,
-                question,
-                selected_dates,
-                VALID_REFUSAL
-    ),
-)
+                    source_text,
+                    question,
+                    selected_dates,
+                    VALID_REFUSAL
+                ),
+            )
+
             answer = response.text
 
     except Exception as error:
-            answer = f"ERROR: {error}"
+        answer = f"ERROR: {error}"
 
     latency_ms = round((time.perf_counter() - started_at) * 1000, 2)
 
