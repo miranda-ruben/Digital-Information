@@ -2,7 +2,7 @@
   "questions": [
     {
       "id": 1,
-      "question": "What should I check before leaving for an Erasmus exchange?",
+      "question": "I'm a University of Luxembourg student who has been nominated for an Erasmus exchange next semester. What administrative steps should I complete before departure, and what should I check regarding my Learning Agreement, language requirements, accommodation and travel documents?",
       "expected_key_points": [
         "Wait for the Outgoing Mobility Office email before starting the host university application.",
         "Respect the host university application deadlines.",
@@ -18,7 +18,7 @@
     },
     {
       "id": 2,
-      "question": "Which documents should I prepare for Erasmus registration?",
+      "question": "I've been selected for an Erasmus exchange and need to prepare my paperwork. Which documents and administrative forms do I need to complete, who needs to sign them, and which documents must be uploaded through the University's mobility portal?",
       "expected_key_points": [
         "Prepare a Learning Agreement (LA or OLA) covering at least 30 ECTS.",
         "Obtain the required signatures from the student, programme director and host institution.",
@@ -33,7 +33,7 @@
     },
     {
       "id": 3,
-      "question": "How can I check whether my courses will transfer as credits?",
+      "question": "I'm choosing courses at my host university and want to make sure they will count towards my degree at the University of Luxembourg. What needs to be agreed upon in my Learning Agreement, what happens if I change courses during my exchange, and how are the credits recognised when I return?",
       "expected_key_points": [
         "Agree on the courses and their recognition through the Learning Agreement.",
         "Use the Learning Agreement to record the courses and ECTS.",
@@ -49,7 +49,7 @@
     },
     {
       "id": 4,
-      "question": "What should I do if my host university has not sent an acceptance letter?",
+      "question": "I've completed my Erasmus nomination and submitted my application to the host university, but I still haven't received an acceptance letter. What does the University of Luxembourg's official guidance say I should do, and who should I contact if the procedure isn't specified?",
       "expected_key_points": [
         "Clearly acknowledge that the available sources do not specify what to do when an acceptance letter has not arrived.",
         "Suggest contacting the relevant mobility office for clarification, while making clear this is a recommendation rather than a documented procedure.",
@@ -61,7 +61,7 @@
     },
     {
       "id": 5,
-      "question": "How should I plan health insurance for studying abroad in Europe?",
+      "question": "I'm preparing for an Erasmus semester in another European country. What health insurance arrangements should I make before leaving, and what is the difference between the European Health Insurance Card and the International SOS assistance service?",
       "expected_key_points": [
         "Arrange adequate health insurance before travelling.",
         "Know that International SOS provides free 24/7 assistance for mobility trips.",
@@ -74,7 +74,7 @@
     },
     {
       "id": 6,
-      "question": "What questions should I ask about accommodation before travelling?",
+      "question": "I've been accepted at a host university but haven't arranged accommodation yet. What should I consider when looking for housing, including availability, location, costs and the responsibilities I have as an exchange student?",
       "expected_key_points": [
         "Consider accommodation costs when comparing the cost of living at the destination.",
         "Check the location of the host university campus because courses may take place away from the main study location.",
@@ -88,7 +88,7 @@
     },
     {
       "id": 7,
-      "question": "How can I make an exchange budget that includes hidden costs?",
+      "question": "I'm planning an Erasmus exchange and want to build a realistic budget. How should I estimate my living expenses based on the destination's cost of living, calculate the financial support I may receive through the monthly Erasmus grant, travel contribution and fewer-opportunities top-up, and account for the minimum and maximum funded mobility durations and the timing of grant payments? Also, what potential expenses are not covered by the University's financial guidance?",
       "expected_key_points": [
         "Estimate living expenses such as accommodation, food and leisure.",
         "Consider differences in the cost of living between destinations.",
@@ -106,7 +106,7 @@
     },
     {
       "id": 8,
-      "question": "What should I do if an official university webpage gives unclear instructions?",
+      "question": "I've found conflicting or unclear instructions on an official University of Luxembourg webpage about my Erasmus mobility. Which University office is responsible for coordinating student mobility, and whom should I approach for clarification?",
       "expected_key_points": [
         "Identify the Bureau des Relations Internationales (BRI) as the office that coordinates and promotes Erasmus+ student mobility.",
         "Recommend contacting the BRI for clarification about international mobility, while making clear this is a recommendation based on its responsibilities.",
@@ -118,7 +118,7 @@
     },
     {
       "id": 9,
-      "question": "Which deadlines should I put in an Erasmus preparation checklist?",
+      "question": "I'm preparing a timeline for my upcoming Erasmus semester. Which important deadlines and administrative milestones should I track before departure, after arriving at the host university, at the end of my exchange and after returning to Luxembourg?",
       "expected_key_points": [
         "Regularly check the university student email account for mobility instructions.",
         "Ensure the European Health Insurance Card is valid before departure.",
@@ -135,7 +135,7 @@
     },
     {
       "id": 10,
-      "question": "When should I contact my home university coordinator during an exchange?",
+      "question": "I'm already studying at my host university and have encountered academic issues, including changes to my selected courses. When should I get in touch with my home university's programme director or faculty mobility coordinator, particularly regarding course changes and credit recognition?",
       "expected_key_points": [
         "Recognise that the programme director is responsible for recognising ECTS earned abroad.",
         "Understand that credit recognition is based on the Learning Agreement signed before the exchange.",
