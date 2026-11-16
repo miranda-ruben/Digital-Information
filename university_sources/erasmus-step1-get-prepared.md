@@ -39,3 +39,5 @@ Check the partner institution's website for the pages on international exchanges
 - Form needed: None on this page.
 - Office responsible: Outgoing Mobility Office (BRI), bri.outgoing@uni.lu (email from other sources).
 - Deadline: No calendar date. Study Abroad Day: every year in November, on the second Thursday. ECTS conditions: at least 15 ECTS in semester 1 to leave in semester 3; at least 10 ECTS in semester 1 to leave in semester 4.
+
+

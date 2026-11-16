@@ -51,7 +51,6 @@ IMPORTANT SOURCE LIMITATIONS:
 - This landing page lists the steps but does not provide specific application or submission deadline dates.
 - This landing page does not itself specify the exact required forms for every individual situation, the responsible office for each step, or eligibility criteria in detail.
 - Follow the relevant linked step page for those details; do not infer or invent them from this summary.
-- For questions not answered by this source, say: "I couldn't find this in the official information available to me. Please consult the University's Erasmus+ guidance or contact the relevant mobility office."
 - Any deadline or specific procedure must be verified from an additional official source before being stated as fact.
 
 SOURCE TRACEABILITY:

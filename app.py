@@ -64,6 +64,7 @@ def load_sources():
 
         check_dates[url] = to_dmy(checked)
         docs.append({
+            "filename": path.name,
             "url": url,
             "checked": to_dmy(checked),
             "title": meta.get("title", path.stem),
@@ -74,6 +75,7 @@ def load_sources():
 
 
 SOURCES, SOURCE_CHECK_DATES = load_sources()
+
 APPROVED_SOURCES = list(SOURCE_CHECK_DATES)
 
 # ---- Choose the sources that fit the question (keeps the prompt small) ----
@@ -93,6 +95,10 @@ ALIASES = {
     "selection": "allocation", "selected": "allocation",
     "dispensation": "exemption", "dispense": "exemption",
     "abroad": "exchange", "mobility": "exchange",
+    "unclear": "international",
+    "instructions": "international",
+    "clarification": "international",
+    "clarify": "international",
 }
 
 

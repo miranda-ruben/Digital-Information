@@ -36,7 +36,7 @@ I regularly check my unilu mailbox @student.uni.lu
 - I upload a PDF copy of the above document via the Erasmus+ mobility portal.
 - I upload a PDF copy of my learning agreement and of the modifications (if any) signed by all parties, via Erasmus+ mobility portal.
 - I complete my online mobility report (invitation received in my Unilu student inbox) - no document required.
-- If I have the Erasmus+ grant AND if 2 to 4 are ticked, I will receive the 2nd payment (the remaining amount will be calculated) within around 4 weeks after submitting the certificate of end of stay.
+- If I have the Erasmus+ grant AND if 2 to 4 are ticked,will receive the 2nd payment (the remaining amount will be calculated) within around 4 weeks after submitting the certificate of end of stay.
 
 ## 5. Upon returning from mobility
 - I provide my original transcript of records from the host university (3) to my academic contact in order to validate my ECTS:

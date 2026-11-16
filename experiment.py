@@ -11,6 +11,8 @@ with open("expected_answers.json", "r", encoding="utf-8") as file:
 
 results = []
 
+
+
 for i, case in enumerate(test_cases, start=1):
     question = case["question"]
     expected_key_points = case["expected_key_points"]
@@ -19,7 +21,7 @@ for i, case in enumerate(test_cases, start=1):
 
     try:
         selected = select_sources(question)
-
+        
         if not selected:
             answer = VALID_REFUSAL
         else:
