@@ -257,6 +257,11 @@ def ask():
             "error": "Gemini is temporarily unavailable. Please try again later."
         }), 503
 
+    except Exception:
+        app.logger.exception("Unexpected error while contacting Gemini.")
+        return jsonify({
+            "error": "Something went wrong. Please try again later."
+        }), 500
 
     if not check_source(response.text or ""):
         return jsonify({
