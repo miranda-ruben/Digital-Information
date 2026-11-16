@@ -18,7 +18,7 @@
     },
     {
       "id": 2,
-      "question": "I've been selected for an Erasmus exchange and need to prepare my paperwork. Which documents and administrative forms do I need to complete, who needs to sign them, and which documents must be uploaded through the University's mobility portal?",
+      "question": "I'm preparing for my Erasmus exchange and need to organise my paperwork. Which documents and administrative forms do I need to complete, who needs to sign them, and what must I upload through the University's mobility portal?",
       "expected_key_points": [
         "Prepare a Learning Agreement (LA or OLA) covering at least 30 ECTS.",
         "Obtain the required signatures from the student, programme director and host institution.",
@@ -28,7 +28,8 @@
       "evaluation_notes": [
         "The Declaration of Honour for Green Travel is relevant only when claiming the Green Travel top-up.",
         "The available landing page does not provide a complete list of documents required for every individual situation.",
-        "Do not present arrival or departure certificates as initial registration documents."
+        "Do not present arrival or departure certificates as initial registration documents.",
+        "Only mention additional documents or uploads when their requirements are supported by the available official sources."
       ]
     },
     {
@@ -65,7 +66,9 @@
       "expected_key_points": [
         "Arrange adequate health insurance before travelling.",
         "Know that International SOS provides free 24/7 assistance for mobility trips.",
-        "Understand that International SOS is not an insurance provider and does not replace health insurance."
+        "Ensure that the European Health Insurance Card is valid for the entire mobility period.",
+        "Understand that International SOS is not an insurance provider and does not replace health insurance.",
+        "Distinguish between health insurance coverage and the assistance service provided by International SOS."
       ],
       "evaluation_notes": [
         "The sources do not specify an insurance provider, exact coverage requirements or insurance costs for each destination.",
@@ -96,7 +99,8 @@
         "Consider the travel contribution, which depends on the distance band.",
         "Check whether eligible students can receive the fewer-opportunities top-up.",
         "Account for the minimum and maximum funded mobility durations.",
-        "Plan for upfront expenses because 70% of the grant is paid at the beginning and the remaining amount is recalculated after mobility."
+        "Plan for upfront expenses because 70% of the grant is paid at the beginning and the remaining amount is recalculated after mobility.",
+        "Clearly identify expenses for which the available financial guidance provides no specific information, rather than inventing costs or assuming the grant covers everything."
       ],
       "evaluation_notes": [
         "The financial support document describes the 2025–2026 funding period. Its grant amounts must not be presented as confirmed current rates for 2026–2027.",
