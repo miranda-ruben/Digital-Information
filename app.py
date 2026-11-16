@@ -13,17 +13,6 @@ app = Flask(__name__)
 
 SOURCE_DIR = Path(__file__).parent / "university_sources"
 
-# The two older .txt files have no header, so their details are listed here.
-LEGACY_SOURCES = {
-    "erasmus-application.txt": {
-        "url": "https://www.uni.lu/en/mobility/outgoing-student-mobility/erasmus/",
-        "last_checked": "2026-11-12",
-    },
-    "study-abroad.txt": {
-        "url": "https://www.uni.lu/fdef-en/study-abroad/",
-        "last_checked": "2026-11-12",
-    },
-}
 
 
 def read_header(text):
@@ -53,8 +42,6 @@ def load_sources():
         text = path.read_text(encoding="utf-8")
         if path.suffix == ".md":
             meta = read_header(text)
-        else:
-            meta = LEGACY_SOURCES.get(path.name, {})
 
         url = meta.get("url")
         checked = meta.get("last_checked")
