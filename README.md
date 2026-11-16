@@ -2,6 +2,25 @@
 https://github.com/miranda-ruben/Digital-Information (Public)
 **Chosen approach:** Gemini API, `gemini-3.8-flash`
 
+## How to Run UniGuideAI
+
+**Requirements:** Python 3.10 or newer, an internet connection, and a Google Gemini API key.
+
+1. Clone the repository and open the project folder:
+   git clone https://github.com/miranda-ruben/Digital-Information.git
+   cd Digital-Information
+   
+
+2. Install the required dependencies:
+   pip install -r requirements.txt
+
+3. Copy `.env.example` to `.env` and replace `your_api_key_here` with your Gemini API key.
+
+4. Start the application:
+   python app.py
+
+5. Open http://127.0.0.1:5000 in your browser and ask an Erasmus-related question.
+
 ## 1. Two approaches compared
 Criterion | Gemini | Groq |
 Model tested | `gemini-3.8-flash` | `openai/gpt-oss-120b` |
@@ -14,7 +33,7 @@ Observed failures | Slow responses | Two HTTP 429 rate-limit errors |
 
 `experiment.py` sends ten realistic Erasmus-administration questions to the
 gemini model. It records per-case success and latency, then calculates success
-rate and average latency in `experiment_results.json`.
+rate and average latency in `experiment_answers.json`.
 
 
 **Result (17 October 2026):** 0/10 cases succeeded (0% success rate) and
@@ -90,3 +109,30 @@ At 100 actions per day for 30 days, the model-only estimate is
 
 | 12 | Submit the working MVP, repository link, video, and one-page summary | Team lead | 16 Nov |
 
+
+## Evaluation Across Five Dimensions
+•	Output quality: Assessed against the expected key points of ten predefined Erasmus questions.
+•	Response time: Measured through experiment runs, including average latency.
+•	Data requirements and handling: Evaluated based on the official University information supplied to the model and external API usage.
+•	Failure modes: Incomplete answers, unsupported information, invalid citations and API errors; handled through safeguards and user-facing messages.
+•	Vendor lock-in: Dependence on Gemini-specific API functionality and the effort required to migrate to another provider.
+
+## Additional changes
+•	We changed the gemini model from 3.8 Flash to 3.5-flash-lite because the newer version has a faster response  time and allows more questions to be asked. 
+•	Added a .env.example to be a placeholder, the .env file is mentioned in the gitignore file so that the api key will not be released to the repository.
+
+## Current MVP Implementation (Technology: Python, Flask, HTML, JavaScript, Gemini API)
+The current prototype provides:
+•	A web interface where students can ask administrative questions.
+•	Integration with the Google Gemini API through a Python Flask backend.
+•	Automatic loading of official university documents from .md files.
+•	Answers with citations to approved university sources and their last-checked dates.
+•	Refusal handling when information is unavailable.
+•	Error handling for API rate limits and temporary service failures.
+
+## Three Known Limitations
+1. No relevant passage retrieval: All loaded documents are sent to Gemini instead of selecting only the relevant passages, potentially increasing processing time and token usage.
+2. No independent deadline validation: Deadlines mentioned in generated answers are not automatically verified against the source documents.
+3. No factual citation verification: The application checks that citation URLs are approved, but does not verify that every generated statement is supported by the cited source.
+
+Demo video: https://youtu.be/XVTN6Es4FE8
