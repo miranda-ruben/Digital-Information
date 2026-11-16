@@ -1,3 +1,4 @@
 .env
 __pycache__/
 experiment_results.json
+.venv/
